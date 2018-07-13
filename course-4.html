@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>course013</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <link rel="stylesheet" href="css/gb.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/vue.min.js"></script>
+</head>
+<body>
+<div class="container" id="app" v-cloak>
+    <!--讲师介绍-->
+    <div class="teacher-intro">
+        <div class="teacher-title">
+            <p>讲师介绍</p>
+            <div class="item"></div>
+        </div>
+        <div class="teacher-info teacher-suggest">
+            <div class="avatar">
+                <div class="head-img" :style="{backgroundImage: 'url(' + data.teacher_intro.url + ')'}"></div>
+                <div class="uname">
+                    <p>{{data.teacher_intro.name}}</p>
+                    <p>{{data.teacher_intro.position}}</p>
+                </div>
+            </div>
+            <div class="item-container">
+                <div class=" item-list-suggest" v-for="list in data.teacher_intro.person_list">
+                    <span class="circle pos-circle"></span>
+                    <div class="font-con">{{list}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--推荐语-->
+    <div class="teacher-intro">
+        <div class="teacher-title">
+            <p>推荐语</p>
+            <div class="item"></div>
+        </div>
+        <div class="teacher-info teacher-suggest">
+            <div class="item-container">
+                <div class=" item-list-suggest" v-for="item in data.recommend_list">
+                    <span class="circle pos-circle"></span>
+                    <div class="font-con">{{item}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--课程大纲-->
+    <div class="course-outline teacher-intro">
+        <div class="teacher-title">
+            <p>课程大纲</p>
+            <div class="item"></div>
+        </div>
+        <div class="course-con" v-for="item in data.outline">
+            <div class="course-title">
+                {{item.course_title}}
+                <img :src="item.url" alt="">
+            </div>
+            <div class="answer">{{item.answer}}</div>
+            <div class="course-item" v-for="courseItem in item.list">
+                <span class="pos-circle"></span>
+                <div class="font-con">{{courseItem}}</div>
+            </div>
+        </div>
+    </div>
+    <!--适用人群-->
+    <div class="teacher-intro">
+        <div class="teacher-title">
+            <p>适用人群</p>
+            <div class="item"></div>
+        </div>
+        <div class="teacher-info teacher-suggest">
+            <div class="item-container">
+                <div class=" item-list-suggest" v-for="item in data.fit_list">
+                    <span class="circle pos-circle"></span>
+                    <div class="font-con">{{item}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--你将获得-->
+    <div class="teacher-intro">
+        <div class="teacher-title">
+            <p>你将获得</p>
+            <div class="item"></div>
+        </div>
+        <div class="obtain-container" v-for="item in data.obtain_list">
+            <div class="obtain-item" :style="{backgroundImage: 'url(' + item.url + ')'}">
+                {{item.text}}
+            </div>
+        </div>
+    </div>
+    <!--人气反馈-->
+    <div class="teacher-intro">
+        <div class="teacher-title">
+            <p>人气反馈</p>
+            <div class="item"></div>
+        </div>
+        <div class="people-container">
+            <div class="people-item" v-for="item in data.comment_list">
+                <div class="pl">
+                    <img src="img/default.png" alt="" v-if="item.url==='' ">
+                    <img :src="item.url" alt="" v-else>
+                </div>
+                <div class="pr">
+                    <div class="name">
+                        <div class="uname">{{item.name}}</div>
+                        <div class="university">{{item.post}}</div>
+                    </div>
+                    <div class="details">
+                        {{item.text}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--服务说明-->
+    <div class="teacher-intro">
+        <div class="teacher-title">
+            <p>服务说明</p>
+            <div class="item"></div>
+        </div>
+        <div class="teacher-info teacher-suggest">
+            <div class="item-container">
+                <div class=" item-list-suggest" v-for="item in data.explain_list">
+                    <span class="circle pos-circle"></span>
+                    <div class="font-con">{{item}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+
+  var app = new Vue({
+    el: '#app',
+    data() {
+      return {
+        data: {
+          teacher_intro: {
+            name: "樊登",
+            url:"img/fd_13.png",
+            position: "樊登读书会创始人",
+            person_list: ["央视著名主持人，北京师范大学传媒学博士", "亲授“领导力类课程”，曾创造课堂评价接近满分", "课后学员行为改变度高达75%的奇迹比例"],
+          },
+          recommend_list: ["我们总是固执地相信领导力是一种天生的能力，后天难以习得。", "然而在这个极具变化、挑战的时代，每一位知识工作者，都是管理者。", "那么如何在快速迭代的时代抢占先机，活得体面而富有尊严呢？", "模仿、践行一系列规范的领导力工具，打破思维惯性，实现组织和个人成长！"],
+          outline: [
+            {
+              course_title: "什么是领导力",
+              url: "img/01@2x.png",
+              answer: "领导力是可以学会的",
+              list: ["柏拉图的教学法", "布置工作说“5遍”", "企业指数型成长的秘密"]
+            },
+            {
+              course_title: " 如何处理员工关系",
+              url: "img/02@2x.png",
+              answer: "员工是公司无形的资产",
+              list: ["谷歌CEO创意精英的招聘", "Linkedin管理员工的秘诀", "彼得·蒂尔不断投资前员工"]
+            },
+            {
+              course_title: "沟通视窗",
+              url: "img/03@2x.png",
+              answer: "职场成功，沟通技巧占75%",
+              list: ["公开象限过大所承受的干扰", "三星电池爆炸事件", "巴菲特偶像的潜能象限"]
+            },
+            {
+              course_title: "管理者角色",
+              url: "img/04@2x.png",
+              answer: "为什么你永远那么忙",
+              list: ["诸葛亮的成败", "跟毛泽东学营造氛围", "李云龙独立团的战斗力"]
+            },
+            {
+              course_title: "如何营造氛围",
+              url: "img/05@2x.png",
+              answer: "好的领导者都是营造氛围的高手",
+              list: ["海底捞高业绩的秘诀", "曹操一举收拢部下暗通袁绍", "麦当劳高素质人才的输出"]
+            },
+            {
+              course_title: "目标设定",
+              url: "img/06@2x.png",
+              answer: "做好目标设定，你就成功了一大半",
+              list: ["越南儿童健康水平的激增", "戴尔重创的根源", "到底是谁害死了那只猫"]
+            },
+            {
+              course_title: "如何倾听",
+              url: "img/07@2x.png",
+              answer: "学会倾听，让你高效沟通",
+              list: ["刘邦何以一统天下", "孙悟空心猿意马", "情绪失控，如何应对"]
+            },
+            {
+              course_title: "给与和接受反馈",
+              url: "img/08@2x.png",
+              answer: "反馈，人才管理的关键技术",
+              list: ["“胡萝卜加大棒”", "员工的关键时刻", "如何获得他人尊敬和信任"]
+            },
+            {
+              course_title: "正确做二级反馈",
+              url: "img/09@2x.png",
+              answer: "如何快速打造良好的人际关系",
+              list: ["教你改变老板的臭脾气", "陶行知的“三颗糖”", "IBM如何进行负面反馈"]
+            },
+            {
+              course_title: "如何做负面反馈",
+              url: "img/10@2x.png",
+              answer: "如何体面地给他人提意见",
+              list: ["领导讲的主题在哪", "我和手下员工渐行渐远", "负面反馈，员工不干了"]
+            },
+            {
+              course_title: "小工具",
+              url: "img/11@2x.png",
+              answer: "两个工具，节省1/3的开会时间",
+              list: ["人类思维的两大弊端", "工商银行提高客户满意度", "“六顶思考帽”"]
+            }
+          ],
+          fit_list: ["想要提升个人领导力的普通人", "想要在家里不断获得话语权的家长们", "想要在人群中有理、优雅、文明地「霸占」影响力的人", "想要不动声色地提升非「职权」而拥有「权力」的企业中高管理层"],
+          obtain_list: [
+            {
+              url: "img/card_01.png",
+              text: "运用游戏化的方式进行组织管理，打造一支行动迅捷，战斗力强，目标明确的团队"
+            },
+            {
+              url: "img/card_02.png",
+              text: "利用自我揭示和恳请反馈2个工具主动放大公开象限，实现个人成长，获得尊重和信任"
+            },
+            {
+              url: "img/card_03.png",
+              text: "优秀管理者的进阶之路：执行——管理——领导"
+            },
+            {
+              url: "img/card_04.png",
+              text: "获得高效能谈话技巧，提升职场谈判成功概率"
+            }
+          ],
+          comment_list: [
+            {
+              url: "",
+              name: "陈春花",
+              post: "北京大学国家发展研究院管理学教授",
+              text: "从管理幅度的有限性来说，任何管理都是团队管理。虽然团队的层次不同，但团队管理的内容仍然离不开计划、组织、指挥、协调、控制等。作者能够以自己创业的亲身管理经历撰写这本书，尤其是在强调基础管理的部分，的确有其独到之处。请读者借助这本书，脚踏实地好好练练基本功吧。"
+            },
+            {
+              url: "",
+              name: "傅盛",
+              post: "猎豹移动CEO",
+              text: "作为社会化的智*生物，我们具备很强的自我改造能力。只要坚信方法论的有效性，构建起自己的科学思考逻辑，我们完全可以通过自己的刻意练习，获得很多看起来传奇的能力。这本书想讲\n" +
+              "的也是这个道理，领导力其实并不ft某些人天然具备的一种天赋，也不是一种不可意会的艺术，而是人人都可以掌握的一种能力，和学习语文、数学本质上没什么区别。"
+            }
+
+          ],
+          explain_list: ["《可复制的领导力》为『一書一課』精品录制课程，共包含11节音视频全集，每节课配有对应课时的精华解读，兑换/购买成功即可学习。",
+            "兑换后在会期内可反复收听/收看学习；用金币购买则可永久反复学习。",
+            "版权归『一書一課』所有，严禁翻录成任何形式，严禁在任何第三方平台进行传播，违者将追究其法律责任。"]
+        }
+      }
+    },
+
+  })
+</script>
+</body>
+</html>
