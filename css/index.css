@@ -14,7 +14,7 @@
 .container .teacher-intro{
     width: 100%;
     margin-bottom: 15px;
-    border: 1px solid #E9E9E9;border-radius: 4px;box-shadow: 0px 0px 5px #929292;}
+    border: 1px solid #E9E9E9;border-radius: 4px;box-shadow: 0px 0px 5px #e5e5e5;}
 .container .teacher-title p{
     padding-left: 16px;
     height:60px;
@@ -86,7 +86,7 @@
 }
 .course-con .course-title{
     position: relative;
-    height: 32px;
+    /*height: 32px;*/
     font-size: 16px;
     background: #E9CE98;
     font-weight: bold;
@@ -97,7 +97,7 @@
 .course-con .course-title img{
     position: absolute;
     left: 5px;
-    top: 6px;
+    top: 7px;
     width: 26px;
     height: 22px;
 }
