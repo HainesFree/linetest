@@ -104,8 +104,9 @@
         <div class="people-container">
             <div class="people-item" v-for="item in data.comment_list">
                 <div class="pl">
-                    <img src="img/default.png" alt="" v-if="item.url==='' ">
-                    <img :src="item.url" alt="" v-else>
+                    <div class="celebrity" :style="{backgroundImage: 'url(img/default.png)'}"
+                         v-if="item.url==='' "></div>
+                    <div class="celebrity" :style="{backgroundImage: 'url(' + item.url + ')'}" v-else></div>
                 </div>
                 <div class="pr">
                     <div class="name">
@@ -146,7 +147,7 @@
         data: {
           teacher_intro: {
             name: "樊登",
-            url:"img/fd_13.png",
+            url: "img/fd_13.png",
             position: "樊登读书会创始人",
             person_list: ["央视著名主持人，北京师范大学传媒学博士", "亲授“领导力类课程”，曾创造课堂评价接近满分", "课后学员行为改变度高达75%的奇迹比例"],
           },
