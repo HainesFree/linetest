@@ -103,7 +103,7 @@
 }
 .course-con .answer{
     box-sizing: border-box;
-    height: 32px;
+    /*height: 32px;*/
     line-height: 32px;
     padding:0 0 0 40px;
     background: #f9f3e4;
