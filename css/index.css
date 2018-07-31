@@ -76,6 +76,17 @@
     width: 100%;
     margin-bottom: 24px;
 }
+.pos-circle{
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin:-5px 14px 0 0;
+    border-radius: 50%;
+    background: #E9CE98;
+}
 .item-list-suggest .font-con{
     width: 85%;
     margin-left: 24px;
