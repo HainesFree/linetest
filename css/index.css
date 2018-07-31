@@ -5,6 +5,7 @@
     width: 100%;
     box-sizing: border-box;
     padding: 0 15px;
+    padding-top: 20px;
     overflow: scroll;
 }
 [v-cloak] {
@@ -102,7 +103,6 @@
 }
 .course-con .answer{
     box-sizing: border-box;
-    /*height: 32px;*/
     line-height: 32px;
     padding:0 0 0 40px;
     background: #f9f3e4;
@@ -116,11 +116,11 @@
 .course-con .course-item .pos-circle{
     position: absolute;
     left: 16px;
-    top: 5px;
+    top: 50%;
     display: inline-block;
     width: 10px;
     height: 10px;
-    margin-right: 14px;
+    margin:-5px 14px 0 0;
     border-radius: 50%;
     background: #E9CE98;
 }
